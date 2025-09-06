@@ -1,0 +1,19 @@
+Po zrobieniu pusha
+1. cd katalog projektu
+2. git status
+3. git pull
+4. php artisan migrate:fresh --seed
+
+========
+
+jak sa popieprzona linki w public, to sie je naprawia
+
+php artisan storage:unlink
+php artisan storage:link
+
+===========
+www-data musi mieć prawo do pisania po
+storage/...
+bootstrap/cache/...
+
+aa

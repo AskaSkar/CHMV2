@@ -1,0 +1,112 @@
+Jacek nam napisał:
+
+1. Apache mod_rewrite is not enabled
+
+Laravel routing depends on URL rewriting so mod_rewrite must be enabled.
+
+How to check and enable:
+
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+
+
+2. AllowOverride Not set to All
+
+Apache needs to allow .htaccess to override settings.
+
+Check your virtual host configuration, usually in:
+
+/etc/apache2/sites-available/000-default.conf
+
+Or:
+
+/etc/apache2/apache2.conf
+
+Make sure the <Directory> directive looks like this:
+
+<Directory /var/www/html/your-laravel-project/public>
+    AllowOverride All
+</Directory>
+
+Then reload Apache:
+
+sudo systemctl restart apache2
+
+
+Wrong DocumentRoot
+
+Laravel’s entry point is the public folder. If Apache is pointing to the Laravel root instead of public, routing will break.
+
+3. Ensure your VirtualHost has:
+
+DocumentRoot /var/www/html/your-laravel-project/public
+
+…and not:
+
+DocumentRoot /var/www/html/your-laravel-project
+
+Otherwise, Laravel’s index.php won’t be used properly
+
+
+4.  .htaccess file is missing or misconfigured
+
+Laravel comes with a .htaccess inside public/. Make sure it exists and looks something like this:
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+or (more commonly) this:
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Redirect Trailing Slashes...
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+Verify it exists and has correct rules
+
+5. Permissions Issue
+
+If Apache can’t read the files inside public, routing will fail.
+
+Fix permissions:
+
+sudo chown -R www-data:www-data /var/www/html/your-laravel-project
+sudo chmod -R 755 /var/www/html/your-laravel-project/storage
+sudo chmod -R 755 /var/www/html/your-laravel-project/bootstrap/cache
+
+6. Apache Overrides Disabled Globally
+
+In apache2.conf, ensure this block is not overriding your site:
+
+<Directory /var/www/>
+    AllowOverride All
+</Directory>
+
+7. Quick Test
+
+After you check all the above:
+
+    Restart Apache
+
+    Clear Laravel caches:
+
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+    Try accessing routes again.
+
+
