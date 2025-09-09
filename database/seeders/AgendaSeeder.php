@@ -16,17 +16,12 @@ class AgendaSeeder extends Seeder
         Agenda::factory()->create([
             'company_id' =>1,
             'event_id' =>1,
-            'date' =>'2025-10-01',
+            'date' =>'2025-09-12',
             ]);
         Agenda::factory()->create([
             'company_id' =>1,
             'event_id' =>1,
-            'date' =>'2025-10-02',
-        ]);
-        Agenda::factory()->create([
-            'company_id' =>1,
-            'event_id' =>1,
-            'date' =>'2025-10-03',
+            'date' =>'2025-09-13',
         ]);
     }
 }

@@ -17,21 +17,16 @@ class LocationsEventSeeder extends Seeder
         'event_id' =>1,
         'location_id' =>1,
         'loc_date_time' =>now(),
-        'descr_header' =>'Sala bursztynowa',
-        'descr' =>'Hotel, który sprawia, że liczy się każda chwila
-
-Zarezerwuj pokój w czterogwiazdkowym Novotel Warszawa Centrum ze wspaniałymi widokami na tętniącą życiem Warszawę. Hotel położony jest tylko 5 minut spacerem od Dworca Centralnego, a bliskość zabytków, sklepów i instytucji kultury zachęcają do zwiedzania. Wyśmienite jedzenie gwarantują hotelowy bar i restauracja. Śniadania są serwowane w dwóch restauracjach, na poziomie 0 oraz -1. W Novotelu dbamy również o udane spotkania biznesowe, a naszym gościom oferujemy doskonale wyposażone centrum konferencyjne.
-
-Hotel Novotel Warszawa Centrum (hotel średniej klasy dla biznesu i rodziny) mieści się w samym centrum Warszawy niedaleko słynnego Pałacu Kultury i Nauki. Znajdujący się przy hotelu węzeł komunikacyjny (metro, autobusy i tramwaje) zapewnia dobrą komunikację z głównymi atrakcjami stolicy. Do hotelu można dojechać tramwajem z oddalonego o 500 m dworca, a z Lotniska Chopina kursuje bezpośredni autobus oraz Szybka Kolej Miejska. Podróż trwa ok. 25 min. Główne drogi dojazdowe to E30 i E77.
-
-Zarezerwuj pokój w czterogwiazdkowym Novotel Warszawa Centrum ze wspaniałymi widokami na tętniącą życiem Warszawę. Wyśmienite jedzenie gwarantują hotelowy bar i restauracja. W Novotelu dbamy również o udane spotkania biznesowe i konferencje.',
+        'descr_header' =>'Pałac i Folwark',
+        'descr' =>'Pałac i Folwark Łochów położony jest zaledwie godzinę jazdy od Warszawy drogą S8, w sercu Nadbużańskiego Parku Krajobrazowego, nad rzeką Liwiec, na terenie o powierzchni 40ha.',
         ]);
         LocationsEvent::factory()->create([
             'event_id' =>1,
             'location_id' =>2,
             'loc_date_time' =>now(),
-            'descr_header' =>'Beef and Pepper Steak house - Restauracja Warszawa',
-            'descr' =>'Restauracja Beef and Pepper specjalizuje się w stekach z wołowiny. Serwujemy jedne z najlepszych steków wołowych w Warszawie. Mięso grillujemy na grillu z lawą wulkaniczną, grill jest opalany ogniem, co sprawia, że steki mają niepowtarzalny smak. W naszym menu znajdziecie również ryby i owoce morza, sałatki oraz dania z drobiu. W karcie znajdują się również desery a czekoladowa kula z lodami i słonym karmelem jest obowiązkiem w Beef and Pepper. Nasz szeroko zaopatrzony w alkohole i wina bar zadowoli każdego Gościa. Profesjonalni barmani przygotują koktajl według Państwa preferencji smakowych. Gwarantujemy świetną kolację w miłej atmosferze oraz profesjonalną załogą! Pozdrawiamy i zapraszamy serdecznie 😊 ',
+            'descr_header' =>'Restauracja U Zamoyskiego – tradycja, smak i wyjątkowa atmosfera.',
+            'descr' =>'Restauracja U Zamoyskiego serdecznie zaprasza do odkrywania smaków tradycyjnej kuchni polskiej oraz regionalnych specjałów inspirowanych bogactwem Mazowsza. Nasz lokal mieści się w urokliwym budynku, pieczołowicie odrestaurowanym z zachowaniem stylu pałacowego, co tworzy niepowtarzalny klimat i wyjątkową atmosferę.
+To d        oskonałe miejsce zarówno na rodzinny obiad, spotkanie biznesowe, wieczór z przyjaciółmi, jak i organizację przyjęcia okolicznościowego. ',
         ]);
     }
 }
